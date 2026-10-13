@@ -1,0 +1,6 @@
+{
+  "name": "Ballón dulces Klhoe",
+  "description": "Sistema integral de gestión de eventos, clientes, inventario de mobiliario y pasapalos, generación de facturas y notas de entrega con tasa BCV, y reportes mensuales con exportación a Excel y Google Drive/Sheets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

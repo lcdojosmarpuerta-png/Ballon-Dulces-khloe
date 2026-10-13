@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-script {
+    font-family: 'Great Vibes', 'Dancing Script', cursive;
+  }
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Ambientación mágica y festiva inspirada en la paleta oficial del logo:
+   - Celeste cielo y burbujas perladas: #38bdf8, #7dd3fc, #bae6fd, #e0f2fe
+   - Rosa pastel y confeti: #f472b6, #fbcfe8, #fdf2f8
+   - Amarillo vainilla / melocotón: #fde047, #fef08a, #fed7aa
+   - Lila / lavanda perlada: #c084fc, #e9d5ff
+   - Oro princesa de corona: #f59e0b, #d97706
+*/
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.abstract-line-bg {
+  background-color: #f8fbff;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(125, 211, 252, 0.22) 0px, transparent 40%),
+    radial-gradient(at 100% 0%, rgba(244, 114, 182, 0.20) 0px, transparent 45%),
+    radial-gradient(at 90% 90%, rgba(253, 224, 71, 0.16) 0px, transparent 40%),
+    radial-gradient(at 5% 95%, rgba(192, 132, 252, 0.18) 0px, transparent 42%),
+    radial-gradient(at 50% 50%, rgba(255, 255, 255, 0.88) 0px, transparent 100%),
+    repeating-linear-gradient(45deg, rgba(56, 189, 248, 0.02) 0px, rgba(56, 189, 248, 0.02) 1px, transparent 1px, transparent 34px),
+    repeating-linear-gradient(-45deg, rgba(244, 114, 182, 0.02) 0px, rgba(244, 114, 182, 0.02) 1px, transparent 1px, transparent 34px);
+}
+
+/* Efectos de sombras y bordes con estilo nube 3D, arcoíris pastel y globos perlados */
+.brand-glow {
+  box-shadow: 0 12px 28px -6px rgba(56, 189, 248, 0.25), 0 8px 16px -6px rgba(244, 114, 182, 0.22);
+}
+
+.brand-rainbow-border {
+  border-image: linear-gradient(to right, #f472b6, #fde047, #6ee7b7, #38bdf8, #c084fc) 1;
+}
+
+.brand-gold-border {
+  border-color: rgba(245, 158, 11, 0.45);
+}
+
+.brand-glass-card {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(186, 230, 253, 0.6);
+  box-shadow: 0 12px 32px -8px rgba(125, 211, 252, 0.18), 0 4px 12px -2px rgba(244, 114, 182, 0.12);
+}
+
+.brand-rainbow-gradient {
+  background: linear-gradient(135deg, #fbcfe8 0%, #fed7aa 25%, #fef08a 50%, #bae6fd 75%, #e9d5ff 100%);
+}
+
+/* Utilidades de visibilidad para impresión */
+.print-only {
+  display: none !important;
+}
+
+/* Reglas de impresión para Formato Tamaño Carta Horizontal (Letter Landscape) - EXACTAMENTE 1 PÁGINA */
+@media print {
+  @page {
+    size: letter landscape;
+    margin: 0.5cm;
+  }
+
+  html, body, #root, #root > div, main {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  /* Ocultar elementos no imprimibles */
+  .no-print, nav, aside, header, footer, button, .modal-backdrop, .toast-container {
+    display: none !important;
+  }
+
+  /* Contenedores de impresión de 2 páginas (Anverso y Reverso) */
+  #printable-invoice-sheet {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
+  }
+
+  .print-page-front {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 19cm !important;
+    page-break-inside: avoid !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
+  }
+
+  .print-page-back {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 19cm !important;
+    page-break-inside: avoid !important;
+    page-break-before: always !important;
+    break-before: page !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
+  }
+
+  .print-half {
+    width: 48.5% !important;
+    max-width: 48.5% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    padding: 6px 8px !important;
+    box-sizing: border-box !important;
+    font-size: 8pt !important;
+    line-height: 1.15 !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 6px !important;
+  }
+
+  .print-divider {
+    width: 3% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-left: 2px dashed #94a3b8 !important;
+    margin-left: -1px !important;
+    height: 100% !important;
+  }
+}
+
